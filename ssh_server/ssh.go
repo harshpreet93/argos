@@ -49,21 +49,21 @@ func StartSSHServer() {
 		},
 		// You may also explicitly allow anonymous client authentication, though anon bash
 		// sessions may not be a wise idea
-		// NoClientAuth: true,
+		 NoClientAuth: true,
 	}
 
 	// You can generate a keypair with 'ssh_server-keygen -t rsa'
-	privateBytes, err := ioutil.ReadFile("id_rsa-argos")
-	if err != nil {
-		log.Fatal("Failed to load private key (./id_rsa-argos)")
-	}
-
-	private, err := ssh.ParsePrivateKey(privateBytes)
-	if err != nil {
-		log.Fatal("Failed to parse private key")
-	}
-
-	config.AddHostKey(private)
+	//privateBytes, err := ioutil.ReadFile("id_rsa-argos")
+	//if err != nil {
+	//	log.Fatal("Failed to load private key (./id_rsa-argos)")
+	//}
+	//
+	//private, err := ssh.ParsePrivateKey(privateBytes)
+	//if err != nil {
+	//	log.Fatal("Failed to parse private key")
+	//}
+	//
+	//config.AddHostKey(private)
 
 	// Once a ServerConfig has been configured, connections can be accepted.
 	listener, err := net.Listen("tcp", "0.0.0.0:2200")
